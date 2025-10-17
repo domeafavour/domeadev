@@ -48,7 +48,8 @@ This repository contains the @domeadev packages collection.
 
 - Write clear, descriptive commit messages
 - Keep commits focused and atomic
-- Follow conventional commit format when possible
+- Follow conventional commit format when possible (e.g., `feat:`, `fix:`, `docs:`, `chore:`)
+  - See https://www.conventionalcommits.org/ for more details
 - Reference related issues in commit messages
 
 ## Package Management
