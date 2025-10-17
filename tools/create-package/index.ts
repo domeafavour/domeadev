@@ -35,7 +35,7 @@ function createPackage(name: string, options: PackageOptions) {
   console.log(`Creating package: ${fullPackageName}`);
   fs.mkdirSync(packageDir, { recursive: true });
   fs.mkdirSync(path.join(packageDir, 'src'), { recursive: true });
-  fs.mkdirSync(path.join(packageDir, 'tests'), { recursive: true });
+  fs.mkdirSync(path.join(packageDir, 'src', 'tests'), { recursive: true });
 
   // Create package.json
   const packageJson = {
@@ -83,7 +83,7 @@ function createPackage(name: string, options: PackageOptions) {
       },
     },
     include: ['src/**/*'],
-    exclude: ['node_modules', 'dist', 'tests'],
+    exclude: ['node_modules', 'dist'],
   };
 
   fs.writeFileSync(
@@ -146,7 +146,7 @@ MIT
 
   // Create tests/index.test.ts
   const testTs = `import { describe, it, expect } from 'vitest';
-import { example } from '../src/index.js';
+import { example } from '../index';
 
 describe('${fullPackageName}', () => {
   it('should return correct message', () => {
@@ -155,7 +155,7 @@ describe('${fullPackageName}', () => {
 });
 `;
 
-  fs.writeFileSync(path.join(packageDir, 'tests', 'index.test.ts'), testTs);
+  fs.writeFileSync(path.join(packageDir, 'src', 'tests', 'index.test.ts'), testTs);
 
   // Create .npmignore
   const npmignore = `src

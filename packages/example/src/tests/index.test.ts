@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { example, greet } from '../src/index.js';
+import { example, greet } from '../index';
 import { capitalize } from '@/utils/helper';
 
 describe('@domeadev/example', () => {
