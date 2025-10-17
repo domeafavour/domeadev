@@ -1,5 +1,4 @@
 {
   "extends": "./tsconfig.base.json",
-  "files": [],
-  "references": [{ "path": "./tools/create-package" }, { "path": "./packages/example" }]
+  "files": []
 }
