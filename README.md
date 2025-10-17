@@ -4,12 +4,13 @@ A TypeScript monorepo for @domeadev packages using pnpm workspace.
 
 ## Features
 
-- **TypeScript**: Full TypeScript support with shared configuration
+- **TypeScript**: Full TypeScript support with shared configuration and path aliases
 - **pnpm Workspace**: Efficient package management with pnpm workspaces
-- **Vitest**: Modern testing framework for unit tests
+- **Vitest**: Modern testing framework for unit tests with path alias support
 - **Storybook**: Component preview and documentation deployed to GitHub Pages
 - **GitHub Actions**: Automated workflows for deployment and publishing
 - **CLI Tool**: Command-line tool for creating new packages
+- **Path Aliases**: Each package supports `@/*` alias pointing to `src/*` for cleaner imports
 
 ## Requirements
 
@@ -59,10 +60,25 @@ pnpm run create-package my-package -d "My awesome package"
 
 This will create a new package at `packages/my-package` with:
 
-- TypeScript configuration
+- TypeScript configuration with path aliases (`@/*` → `src/*`)
 - Package.json with @domeadev namespace
+- Vitest configuration with alias support
 - Basic test setup
 - Example code
+
+### Using Path Aliases
+
+Each package supports the `@` alias for cleaner imports:
+
+```typescript
+// Instead of relative imports:
+import { helper } from '../../utils/helper';
+
+// Use the @ alias:
+import { helper } from '@/utils/helper';
+```
+
+This works in both TypeScript source files and Vitest tests.
 
 ### Code Formatting
 

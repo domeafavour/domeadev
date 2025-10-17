@@ -77,6 +77,10 @@ function createPackage(name: string, options: PackageOptions) {
     compilerOptions: {
       outDir: './dist',
       rootDir: './src',
+      baseUrl: '.',
+      paths: {
+        '@/*': ['src/*'],
+      },
     },
     include: ['src/**/*'],
     exclude: ['node_modules', 'dist', 'tests'],
@@ -86,6 +90,25 @@ function createPackage(name: string, options: PackageOptions) {
     path.join(packageDir, 'tsconfig.json'),
     JSON.stringify(tsConfig, null, 2) + '\n'
   );
+
+  // Create vitest.config.ts
+  const vitestConfig = `import { defineConfig } from 'vitest/config';
+import { resolve } from 'path';
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+    },
+  },
+  test: {
+    globals: true,
+    environment: 'node',
+  },
+});
+`;
+
+  fs.writeFileSync(path.join(packageDir, 'vitest.config.ts'), vitestConfig);
 
   // Create README.md
   const readme = `# ${fullPackageName}
