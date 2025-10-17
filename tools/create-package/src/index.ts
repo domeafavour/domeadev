@@ -59,7 +59,6 @@ function createPackage(name: string, options: PackageOptions) {
       clean: 'rm -rf dist *.tsbuildinfo',
     },
     keywords: ['domeadev'],
-    author: '',
     license: 'MIT',
     devDependencies: {
       typescript: '^5.0.0',

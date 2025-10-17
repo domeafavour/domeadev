@@ -24,7 +24,6 @@
   "keywords": [
     "domeadev"
   ],
-  "author": "",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.0.0",

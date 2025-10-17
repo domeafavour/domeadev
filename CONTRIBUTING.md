@@ -70,10 +70,7 @@ After creating a new package:
 ### Running Tests
 
 ```bash
-# Run all tests
-pnpm run test
-
-# Run tests in watch mode
+# Run all tests in watch mode
 pnpm run test
 
 # Run tests with UI
